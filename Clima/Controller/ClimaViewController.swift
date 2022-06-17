@@ -117,6 +117,7 @@ extension ClimaViewController: UITableViewDataSource, UITableViewDelegate{
         guard let humidity = model?.humidity else { return cell }
         guard let sunrise = model?.sunRise else { return cell }
         guard let sunset = model?.sunDown else { return cell }
+        
         cell.dateLabel.text = "\(date.formatted(date: .numeric, time: .omitted).dropLast(5))"
         cell.dayLabel.text = "\(date.formatted(date: .omitted, time: .shortened))"
         cell.tempMInLabel.text = String(format: "%.1f", temp_min) + "°"
@@ -128,20 +129,13 @@ extension ClimaViewController: UITableViewDataSource, UITableViewDelegate{
         
         if temp_min < 5.0 {
             cell.minImage.image = UIImage(systemName: clima.Others.thermometerSnowFlake)
-        }
-//        else if temp_min > 5.0 && temp_min <= 10 {
-//            cell.minImage.image = UIImage(systemName: clima.Others.thermometherLow)
-//        }
-        else{
+        }else{
             cell.minImage.image = UIImage(systemName: clima.Others.thermometer)
         }
         
         if temp_max > 25.0 {
             cell.maxImage.image = UIImage(systemName: clima.Others.thermometerSunFill)
-        }
-//        else if temp_max > 29.9 && temp_max <= 39.9 {
-//            cell.maxImage.image = UIImage(systemName: clima.Others.thermometerHigh)}
-        else {
+        }else {
             cell.maxImage.image = UIImage(systemName: clima.Others.thermometer)
         }
         

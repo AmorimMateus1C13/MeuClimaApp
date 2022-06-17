@@ -22,8 +22,6 @@ struct ClimaManager {
     func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
        let urlString = "\(weatherURL)\(apiKey)\(units)\(lang)&lat=\(latitude)&lon=\(longitude)"
         performRequest(with: urlString)
-//        let url2 = "http://history.openweathermap.org/data/2.5/history/city?\(apiKey)\(units)\(lang)&lat=\(latitude)&lon=\(longitude)&type=hour&start=1369728000&end=1369789200"
-//        print(url2)
     }
     
     func performRequest(with urlString: String){
